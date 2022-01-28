@@ -15,7 +15,8 @@ export function VideoPlayerPage() {
       <div className="flex flex-col w-full mx-8">
         <iframe
           key={id}
-          className="h-1/4 max-h-86"
+          style={{height: "29rem"}}
+          className=""
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           frameborder="0"

@@ -14,7 +14,9 @@ import {
 
 export function VideoPlayerPage() {
   const { videoID } = useParams();
-  const { id, videoId } = videosDb.find((item) => item.videoId === videoID);
+  const { id, videoId, videoTitle, views, date, channel } = videosDb.find(
+    (item) => item.videoId === videoID
+  );
 
   return (
     <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center">
@@ -30,16 +32,19 @@ export function VideoPlayerPage() {
           allowfullscreen
         ></iframe>
 
-        <div className="flex flex-row mt-4 justify-between items-center">
+        <div className="flex flex-row mt-6 justify-between items-center gap-4">
           <div className="flex flex-row gap-4">
-            {/* <img src={item.channel.logo} className="rounded-md h-8"></img> */}
-
+            <img
+              src={channel.logo}
+              alt={videoTitle}
+              className="rounded-full h-12"
+            ></img>
             <div className="flex flex-col">
-              <p className="text-2xl font-medium text-white">Video Title</p>
-              <div className="flex flex-row gap-3 text-gray-400">
-                <p>Video channnel</p>
-                <p>1.5k views</p>
-                <p>Date</p>
+              <p className="text-2xl font-medium text-white">{videoTitle}</p>
+              <div className="flex flex-row gap-3 text-gray-400 mt-3">
+                <p>{channel.name}</p>  •
+                <p>{viewsFormatter(views)} views</p> •
+                <p>{date}</p>
               </div>
             </div>
           </div>
@@ -72,10 +77,10 @@ export function VideoPlayerPage() {
                   ></img>
 
                   <div className="flex flex-col">
-                    <p className="text-gray-100 font-medium">Video-title</p>
-                    <small className="text-gray-400">Video-channel</small>
+                    <p className="text-gray-100 font-medium">{item.videoTitle}</p>
+                    <small className="text-gray-400">{item.channel.name}</small>
                     <small className="text-gray-400">
-                      {viewsFormatter(item.views)} views . {item.date}
+                      {viewsFormatter(item.views)} views • {item.date}
                     </small>
                   </div>
                 </div>

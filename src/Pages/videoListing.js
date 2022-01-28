@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // import { FaDotCircle } from "react-icons/fa";
 import { viewsFormatter } from "../utils/viewsFormatter";
 
-export function Home() {
+export function VideoListing() {
   return (
     <div className="h-full ml-44 mt-4 py-8">
       <ul className="flex flex-row flex-wrap justify-evenly">

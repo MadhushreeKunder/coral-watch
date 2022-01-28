@@ -16,7 +16,7 @@ export const NavBar = () => {
             <NavLink
               end
               to="/"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
             >
               <div className="flex flex-row items-center">
                 <FaHome className="mr-2" /> Home{" "}
@@ -26,7 +26,7 @@ export const NavBar = () => {
           <li className="">
             <NavLink
               to="/playlist"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
             >
               {" "}
               <div className="flex flex-row items-center">
@@ -37,7 +37,7 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/likedvideos"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
             >
               {" "}
               <div className="flex flex-row items-center">
@@ -48,7 +48,7 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/watchlater"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
             >
               <div className="flex flex-row items-center">
                 <FaClock className="mr-2" /> Watch Later
@@ -58,7 +58,7 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/history"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
             >
               {" "}
               <div className="flex flex-row items-center">

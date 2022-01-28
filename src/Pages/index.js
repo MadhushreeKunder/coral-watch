@@ -1,4 +1,4 @@
-export { Home } from "./home";
+export { VideoListing } from "./videoListing";
 export { Playlist } from "./playlist";
 export { LikedVideos } from "./likedVideos";
 export { WatchLater } from "./watchLater";

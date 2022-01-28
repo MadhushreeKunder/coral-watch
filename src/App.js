@@ -4,7 +4,7 @@ import {
   LikedVideos,
   WatchLater,
   History,
-  Home,
+  VideoListing,
   VideoPlayerPage,
 } from "./Pages";
 import { Header, NavBar } from "./utils";
@@ -16,7 +16,7 @@ export default function App() {
       <Header />
       <NavBar />
       <Routes className="routes">
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<VideoListing />} />
         <Route path="/playlist" element={<Playlist />} />
         <Route path="/video/:videoID" element={<VideoPlayerPage />} />
         <Route path="/likedvideos" element={<LikedVideos />} />

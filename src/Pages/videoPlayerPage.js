@@ -10,11 +10,11 @@ export function VideoPlayerPage() {
   const { id, videoId } = videosDb.find((item) => item.videoId === videoID);
 
   return (
-    <div className="h-full ml-44 mt-4 py-8 flex flex-row">
-      <div className="flex flex-col grow mx-8">
+    <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center">
+      <div className="flex flex-col w-full mx-8">
         <iframe
           key={id}
-          className="h-96 max-h-86 w-full"
+          className="h-1/4 max-h-86"
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           frameborder="0"
@@ -28,7 +28,7 @@ export function VideoPlayerPage() {
         <ul className="flex flex-col flex-wrap justify-evenly flex:none">
           {videosDb.map((item) => (
             <li className="w-64 mx-2 mb-4">
-              <Link to={`/video/${item.videoId}`}>
+              <Link to={`/video/${item.videoId}`} >
                 <img
                   className="video-thumbnail"
                   src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}

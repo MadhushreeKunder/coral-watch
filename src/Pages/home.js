@@ -6,7 +6,7 @@ import {FaDotCircle} from "react-icons/fa"
 
 export function Home() {
   return (
-    <div className="h-screen ml-44 mt-4 py-8">
+    <div className="h-full ml-44 mt-4 py-8">
       <ul className="flex flex-row flex-wrap justify-evenly">
         {videosDb.map((item) => (
           <li className="w-64 mx-2 mb-4">

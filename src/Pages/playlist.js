@@ -6,7 +6,7 @@ import { FaDotCircle } from "react-icons/fa";
 
 export function Playlist() {
   return (
-    <div className="h-screen ml-44 mt-4 py-8">
+    <div className="h-full ml-44 mt-4 py-8">
       <h1 className="text-white text-2xl font-semibold ml-5 mb-5">Playlist</h1>
       <ul className="flex flex-row flex-wrap justify-evenly">
         {videosDb.map((item) => (

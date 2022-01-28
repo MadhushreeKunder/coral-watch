@@ -1,6 +1,5 @@
 import { videosDb } from "../database";
 import { Link } from "react-router-dom";
-import { FaDotCircle } from "react-icons/fa";
 import { viewsFormatter } from "../utils/viewsFormatter";
 
 export function LikedVideos() {
@@ -18,8 +17,7 @@ export function LikedVideos() {
               />
 
               <div className="flex flex-row mt-2 gap-2">
-                {/* <FaDotCircle className="text-white text-3xl" /> */}
-                <img src={item.channel.logo} className="rounded-md h-8"></img>
+                <img src={item.channel.logo} alt={item.videoTitle} className="rounded-full h-8"></img>
                 <div className="flex flex-col">
                   <p className="text-gray-100 font-medium">{item.videoTitle}</p>
                   <small className="text-gray-400">{item.channel.name}</small>

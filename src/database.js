@@ -92,7 +92,7 @@ export const videosDb = [
     channel: {
       cId: 1,
       name: "Kurzgesagt - In a Nutshell",
-      logo: "https://yt3.ggpht.com/ytc/AKedOLQX01z9397d0IgR7uW_Spo6odKET6mPUe0ChNb5cg=s88-c-k-c0x00ffffff-no-rj",
+      logo: "https://yt3.ggpht.com/ytc/AKedOLQO2-DfuqwtPYTqBcZ8rEWt8g4p1sB_LyddKS5msQ=s88-c-k-c0x00ffffff-no-rj",
     }
   },
 
@@ -140,7 +140,7 @@ export const videosDb = [
     channel: {
       cId: 1,
       name: "Kurzgesagt - In a Nutshell",
-      logo: "https://yt3.ggpht.com/ytc/AKedOLQX01z9397d0IgR7uW_Spo6odKET6mPUe0ChNb5cg=s88-c-k-c0x00ffffff-no-rj",
+      logo: "https://yt3.ggpht.com/ytc/AKedOLQO2-DfuqwtPYTqBcZ8rEWt8g4p1sB_LyddKS5msQ=s88-c-k-c0x00ffffff-no-rj",
     }
   },
 
@@ -152,7 +152,7 @@ export const videosDb = [
     channel: {
       cId: 1,
       name: "Kurzgesagt - In a Nutshell",
-      logo: "https://yt3.ggpht.com/ytc/AKedOLQX01z9397d0IgR7uW_Spo6odKET6mPUe0ChNb5cg=s88-c-k-c0x00ffffff-no-rj",
+      logo: "https://yt3.ggpht.com/ytc/AKedOLQO2-DfuqwtPYTqBcZ8rEWt8g4p1sB_LyddKS5msQ=s88-c-k-c0x00ffffff-no-rj",
     }
   },
 
@@ -164,7 +164,7 @@ export const videosDb = [
     channel: {
       cId: 1,
       name: "Kurzgesagt - In a Nutshell",
-      logo: "https://yt3.ggpht.com/ytc/AKedOLQX01z9397d0IgR7uW_Spo6odKET6mPUe0ChNb5cg=s88-c-k-c0x00ffffff-no-rj",
+      logo: "https://yt3.ggpht.com/ytc/AKedOLQO2-DfuqwtPYTqBcZ8rEWt8g4p1sB_LyddKS5msQ=s88-c-k-c0x00ffffff-no-rj",
     }
   },
 
@@ -176,7 +176,7 @@ export const videosDb = [
     channel: {
       cId: 1,
       name: "Kurzgesagt - In a Nutshell",
-      logo: "https://yt3.ggpht.com/ytc/AKedOLQX01z9397d0IgR7uW_Spo6odKET6mPUe0ChNb5cg=s88-c-k-c0x00ffffff-no-rj",
+      logo: "https://yt3.ggpht.com/ytc/AKedOLQO2-DfuqwtPYTqBcZ8rEWt8g4p1sB_LyddKS5msQ=s88-c-k-c0x00ffffff-no-rj",
     }
   },
 

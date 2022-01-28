@@ -2,7 +2,7 @@
 
 import { videosDb } from "../database";
 import { Link } from "react-router-dom";
-import { FaDotCircle } from "react-icons/fa";
+// import { FaDotCircle } from "react-icons/fa";
 import { viewsFormatter } from "../utils/viewsFormatter";
 
 export function Home() {

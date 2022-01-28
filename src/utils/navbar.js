@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FaHome,
   FaStream,
@@ -12,43 +12,59 @@ export const NavBar = () => {
     <aside className="fixed left-0 h-full z-1">
       <nav className=" flex flex-col items-start pl-3 pr-3 mr-20 h-full bg-gray-800 text-gray-400 ">
         <ul>
-          <li className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded">
-            <Link to="/">
+          <li>
+            <NavLink
+              end
+              to="/"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+            >
               <div className="flex flex-row items-center">
                 <FaHome className="mr-2" /> Home{" "}
               </div>
-            </Link>
+            </NavLink>
           </li>
-          <li className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded">
-            <Link to="/playlist">
+          <li className="">
+            <NavLink
+              to="/playlist"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+            >
               {" "}
               <div className="flex flex-row items-center">
                 <FaStream className="mr-2" /> Playlist
               </div>
-            </Link>
+            </NavLink>
           </li>
-          <li className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded">
-            <Link to="/likedvideos">
+          <li>
+            <NavLink
+              to="/likedvideos"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+            >
               {" "}
               <div className="flex flex-row items-center">
                 <FaThumbsUp className="mr-2" /> Liked Videos
               </div>
-            </Link>
+            </NavLink>
           </li>
-          <li className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded">
-            <Link to="/watchlater">
+          <li>
+            <NavLink
+              to="/watchlater"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+            >
               <div className="flex flex-row items-center">
                 <FaClock className="mr-2" /> Watch Later
               </div>
-            </Link>
+            </NavLink>
           </li>
-          <li className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded">
-            <Link to="/history">
+          <li>
+            <NavLink
+              to="/history"
+              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-700  focus:bg-gray-700 active:text-white focus:text-white rounded"
+            >
               {" "}
               <div className="flex flex-row items-center">
                 <FaHistory className="mr-2" /> History
               </div>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

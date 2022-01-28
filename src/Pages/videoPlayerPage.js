@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import {
-  FaDotCircle,
   FaClock,
   FaThumbsUp,
   FaFolderPlus,

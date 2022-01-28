@@ -3,7 +3,13 @@ import React from "react";
 import { videosDb } from "../database";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaDotCircle, FaClock, FaThumbsUp, FaFolderPlus, FaShareAlt
+import { viewsFormatter } from "../utils/viewsFormatter";
+import {
+  FaDotCircle,
+  FaClock,
+  FaThumbsUp,
+  FaFolderPlus,
+  FaShareAlt,
 } from "react-icons/fa";
 
 export function VideoPlayerPage() {
@@ -15,7 +21,7 @@ export function VideoPlayerPage() {
       <div className="flex flex-col w-full mx-8">
         <iframe
           key={id}
-          style={{height: "29rem"}}
+          style={{ height: "29rem" }}
           className=""
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
@@ -26,7 +32,7 @@ export function VideoPlayerPage() {
 
         <div className="flex flex-row mt-4 justify-between items-center">
           <div className="flex flex-row gap-4">
-            <FaDotCircle className="text-white text-3xl" />
+            {/* <img src={item.channel.logo} className="rounded-md h-8"></img> */}
 
             <div className="flex flex-col">
               <p className="text-2xl font-medium text-white">Video Title</p>
@@ -38,10 +44,10 @@ export function VideoPlayerPage() {
             </div>
           </div>
           <div className="flex flex-row gap-6 text-2xl text-gray-300 mr-4">
-            <FaThumbsUp className="active:text-white hover:text-white focus:text-rose-500"/>
-            <FaClock className="active:text-white hover:text-white focus:text-rose-500"/>
-            <FaFolderPlus className="active:text-white hover:text-white focus:text-rose-500"/>
-            <FaShareAlt className="active:text-white hover:text-white focus:text-rose-500"/>
+            <FaThumbsUp className="active:text-white hover:text-white focus:text-rose-500" />
+            <FaClock className="active:text-white hover:text-white focus:text-rose-500" />
+            <FaFolderPlus className="active:text-white hover:text-white focus:text-rose-500" />
+            <FaShareAlt className="active:text-white hover:text-white focus:text-rose-500" />
           </div>
         </div>
       </div>
@@ -58,12 +64,18 @@ export function VideoPlayerPage() {
                 />
 
                 <div className="flex flex-row mt-2 gap-2">
-                  <FaDotCircle className="text-white text-3xl" />
+                  {/* <FaDotCircle className="text-white text-3xl" /> */}
+                  <img
+                    src={item.channel.logo}
+                    alt={item.videoTitle}
+                    className="rounded-full h-8"
+                  ></img>
+
                   <div className="flex flex-col">
                     <p className="text-gray-100 font-medium">Video-title</p>
                     <small className="text-gray-400">Video-channel</small>
                     <small className="text-gray-400">
-                      16.1k views . 3 years ago
+                      {viewsFormatter(item.views)} views . {item.date}
                     </small>
                   </div>
                 </div>

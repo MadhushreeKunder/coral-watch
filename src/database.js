@@ -2,7 +2,7 @@ export const videosDb = [
   { id: 1,
     videoId: "uzkD5SeuwzM",
     videoTitle: "TRUE Limits Of Humanity – The Final Border We Will Never Cross",
-    views: "13,792,104",
+    views: 13792104,
     date: "May 11, 2021",
     channel: {
       cId: 1,
@@ -14,7 +14,7 @@ export const videosDb = [
   { id: 2,
     videoId: "SUelbSa-OkA",
     videoTitle: "LIFE BEYOND: Chapter 1. Alien life, deep time, and our place in cosmic history (4K)    ",
-    views: "10,867,712",
+    views: 10867712,
     date: "Nov 20, 2019",
     channel: {
       cId: 2,
@@ -26,7 +26,7 @@ export const videosDb = [
   { id: 3,
     videoId: "saWNMPL5ygk",
     videoTitle: "LIFE BEYOND 3: In Search of Giants. The Hunt for Intelligent Alien Life (4K)    ",
-    views: "3,820,918",
+    views: 3820918,
     date: "Dec 7, 2021",
     channel: {
       cId: 2,
@@ -38,7 +38,7 @@ export const videosDb = [
   { id: 4,
     videoId: "ThDYazipjSI",
     videoTitle: "LIFE BEYOND II: The Museum of Alien Life (4K)",
-    views: "15,555,869",
+    views: 15555869,
     date: "Oct 7, 2020",
     channel: {
       cId: 2,
@@ -51,7 +51,7 @@ export const videosDb = [
   { id: 5,
     videoId: "_1R_pg5QasA",
     videoTitle: "When Will COVID End?",
-    views: "3,124,896",
+    views: 3124896,
     date: "Jan 19, 2022",
     channel: {
       cId: 3,
@@ -63,7 +63,7 @@ export const videosDb = [
   { id: 6,
     videoId: "6SrsZVdU740",
     videoTitle: "The Secret History of the Moon - 4K",
-    views: "1,712,043",
+    views: 1712043,
     date: "Apr 30, 2020",
     channel: {
       cId: 2,
@@ -75,7 +75,7 @@ export const videosDb = [
   { id: 7,
     videoId: "uD4izuDMUQA",
     videoTitle: "TIMELAPSE OF THE FUTURE: A Journey to the End of Time (4K)",
-    views: "78,439,473",
+    views: 78439473,
     date: "Mar 20, 2019",
     channel: {
       cId: 2,
@@ -87,7 +87,7 @@ export const videosDb = [
   { id: 8,
     videoId: "dFCbJmgeHmA",
     videoTitle: "The Day the Dinosaurs Died – Minute by Minute    ",
-    views: "13,060,384",
+    views: 13060384,
     date: "Jun 15, 2021",
     channel: {
       cId: 1,
@@ -99,7 +99,7 @@ export const videosDb = [
   { id: 9,
     videoId: "BickMFHAZR0",
     videoTitle: "How Trees Bend the Laws of Physics    ",
-    views: "4,017,528",
+    views: 4017528,
     date: "Oct 30, 2012",
     channel: {
       cId: 4,
@@ -111,7 +111,7 @@ export const videosDb = [
   { id: 10,
     videoId: "tH2tKigOPBU",
     videoTitle: "Perseverance Mars Rover Landing- Inside Story    ",
-    views: "13,658,884",
+    views: 13658884,
     date: "Feb 15, 2021",
     channel: {
       cId: 5,
@@ -123,7 +123,7 @@ export const videosDb = [
   { id: 11,
     videoId: "DTvS9lvRxZ8",
     videoTitle: "Backyard Squirrel Maze 2.0- The Walnut Heist    ",
-    views: "53,384,203",
+    views: 53384203,
     date: "May 19, 2021",
     channel: {
       cId: 5,
@@ -135,7 +135,7 @@ export const videosDb = [
   { id: 12,
     videoId: "xaQJbozY_Is",
     videoTitle: "What Dinosaurs ACTUALLY Looked Like?    ",
-    views: "8,706,402",
+    views: 8706402,
     date: "Oct 12, 2021",
     channel: {
       cId: 1,
@@ -147,7 +147,7 @@ export const videosDb = [
   { id: 13,
     videoId: "e-P5IFTqB98",
     videoTitle: "Black Holes Explained – From Birth to Death    ",
-    views: "19,347,752",
+    views: 19347752,
     date: "Dec 15, 2015",
     channel: {
       cId: 1,
@@ -159,7 +159,7 @@ export const videosDb = [
   { id: 14,
     videoId: "pP44EPBMb8A",
     videoTitle: "How to Build a Dyson Sphere - The Ultimate Megastructure    ",
-    views: "17,889,672",
+    views: 17889672,
     date: "Dec 20, 2018",
     channel: {
       cId: 1,
@@ -171,7 +171,7 @@ export const videosDb = [
   { id: 15,
     videoId: "NtQkz0aRDe8",
     videoTitle: "How We Could Build a Moon Base TODAY – Space Colonization 1    ",
-    views: "13,286,914",
+    views: 13286914,
     date: "Sep 16, 2018",
     channel: {
       cId: 1,
@@ -183,7 +183,7 @@ export const videosDb = [
   { id: 16,
     videoId: "lARpY0nIQx0",
     videoTitle: "Is NASA a waste of money?    ",
-    views: "13,588,839",
+    views: 13588839,
     date: "Feb 15, 2018",
     channel: {
       cId: 5,

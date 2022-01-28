@@ -4,12 +4,7 @@ import { videosDb } from "../database";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
-import {
-  FaClock,
-  FaThumbsUp,
-  FaFolderPlus,
-  FaShareAlt,
-} from "react-icons/fa";
+import { FaClock, FaThumbsUp, FaFolderPlus, FaShareAlt } from "react-icons/fa";
 
 export function VideoPlayerPage() {
   const { videoID } = useParams();
@@ -41,17 +36,24 @@ export function VideoPlayerPage() {
             <div className="flex flex-col">
               <p className="text-2xl font-medium text-white">{videoTitle}</p>
               <div className="flex flex-row gap-3 text-gray-400 mt-3">
-                <p>{channel.name}</p>  •
-                <p>{viewsFormatter(views)} views</p> •
+                <p>{channel.name}</p> •<p>{viewsFormatter(views)} views</p> •
                 <p>{date}</p>
               </div>
             </div>
           </div>
           <div className="flex flex-row gap-6 text-2xl text-gray-300 mr-4">
-            <FaThumbsUp className="active:text-white hover:text-white focus:text-rose-500" />
-            <FaClock className="active:text-white hover:text-white focus:text-rose-500" />
-            <FaFolderPlus className="active:text-white hover:text-white focus:text-rose-500" />
-            <FaShareAlt className="active:text-white hover:text-white focus:text-rose-500" />
+            <button>
+              <FaThumbsUp className="active:text-white hover:text-white focus:text-rose-500" />
+            </button>
+            <button>
+              <FaClock className="active:text-white hover:text-white focus:text-rose-500" />
+            </button>
+            <button>
+              <FaFolderPlus className="active:text-white hover:text-white focus:text-rose-500" />
+            </button>
+            <button>
+              <FaShareAlt className="active:text-white hover:text-white focus:text-rose-500" />
+            </button>
           </div>
         </div>
       </div>
@@ -76,7 +78,9 @@ export function VideoPlayerPage() {
                   ></img>
 
                   <div className="flex flex-col">
-                    <p className="text-gray-100 font-medium">{item.videoTitle}</p>
+                    <p className="text-gray-100 font-medium">
+                      {item.videoTitle}
+                    </p>
                     <small className="text-gray-400">{item.channel.name}</small>
                     <small className="text-gray-400">
                       {viewsFormatter(item.views)} views • {item.date}

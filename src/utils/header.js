@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <div className="relative mb-20">
-      <header className="fixed top-0 left-0 right-0 bg-gray-800 p-6 flex flex-row justify-between items-center">
+    <div className="relative mb-16">
+      <header className="fixed top-0 left-0 right-0 bg-gray-800 p-4 flex flex-row justify-between items-center">
         <Link to="/">
           <div className="flex flex-row items-center gap-2">
             <img src="/Images/logo2.png" className="logo" alt="CORAL-UI"></img>

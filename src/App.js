@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import "./styles.css";
+import {
+  Playlist,
+  LikedVideos,
+  WatchLater,
+  History,
+  Home,
+  VideoPlayerPage,
+} from "./Pages";
+import { Header, NavBar } from "./utils";
+import { Link, Routes, Route } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-gray-900">
+      <Header />
+      <NavBar />
+      <Routes className="routes">
+        <Route path="/" element={<Home />} />
+        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/video/:videoID" element={<VideoPlayerPage />} />
+        <Route path="/likedvideos" element={<LikedVideos />} />
+        <Route path="/watchlater" element={<WatchLater />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;

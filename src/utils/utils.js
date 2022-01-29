@@ -1,0 +1,1 @@
+export const Backend_URL = "https://coral-watch-backend.madhushreekunde.repl.co";

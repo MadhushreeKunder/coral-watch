@@ -35,14 +35,14 @@ export const NavBar = () => {
           </li>
           <li className="">
             <NavLink
-              to="/playlist"
+              to="/playlists"
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }
             >
               {" "}
               <div className="flex flex-row items-center">
-                <FaStream className="mr-2" /> Playlist
+                <FaStream className="mr-2" /> Playlists
               </div>
             </NavLink>
           </li>

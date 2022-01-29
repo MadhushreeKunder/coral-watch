@@ -5,10 +5,10 @@ import { viewsFormatter } from "../utils/viewsFormatter";
 
 // Change playlist ui
 
-export function Playlist() {
+export function Playlists() {
   return (
     <div className="h-full ml-44 mt-4 py-8">
-      <h1 className="text-white text-2xl font-semibold ml-5 mb-5">Playlist</h1>
+      <h1 className="text-white text-2xl font-semibold ml-5 mb-5">Playlists</h1>
       <ul className="flex flex-row flex-wrap justify-evenly">
         {videosDb.map((item) => (
           <li className="w-64 mx-2 mb-4">

@@ -1,5 +1,5 @@
 export { VideoListing } from "./videoListing";
-export { Playlist } from "./playlist";
+export { Playlists } from "./playlists";
 export { LikedVideos } from "./likedVideos";
 export { WatchLater } from "./watchLater";
 export { History } from "./history";

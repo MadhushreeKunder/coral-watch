@@ -1,6 +1,6 @@
 // import "./styles.css";
 import {
-  Playlist,
+  Playlists,
   LikedVideos,
   WatchLater,
   History,
@@ -17,7 +17,7 @@ export default function App() {
       <NavBar />
       <Routes className="routes">
         <Route path="/" element={<VideoListing />} />
-        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlists" element={<Playlists />} />
         <Route path="/video/:videoID" element={<VideoPlayerPage />} />
         <Route path="/likedvideos" element={<LikedVideos />} />
         <Route path="/watchlater" element={<WatchLater />} />

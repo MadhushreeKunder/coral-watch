@@ -8,6 +8,13 @@ import {
 } from "react-icons/fa";
 
 export const NavBar = () => {
+  
+  let activeClassname =
+    "px-3 py-2 my-2 text-lg block rounded active:bg-gray-900 active:text-sky-400 focus:bg-gray-900 focus:text-sky-400";
+
+  let inActiveClassname =
+    "px-3 py-2 my-2 text-lg block rounded hover:bg-gray-700 hover:text-white";
+
   return (
     <aside className="fixed left-0 h-full z-1">
       <nav className=" flex flex-col items-start pl-3 pr-3 mr-20 h-full bg-gray-800 text-gray-400 ">
@@ -16,7 +23,10 @@ export const NavBar = () => {
             <NavLink
               end
               to="/"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
+              // className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 hover:text-white active:bg-gray-900  focus:bg-gray-900 active:text-sky-400 focus:text-sky-400 rounded"
+              className={({ isActive }) =>
+                isActive ? activeClassname : inActiveClassname
+              }
             >
               <div className="flex flex-row items-center">
                 <FaHome className="mr-2" /> Home{" "}
@@ -26,7 +36,9 @@ export const NavBar = () => {
           <li className="">
             <NavLink
               to="/playlist"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
+              className={({ isActive }) =>
+                isActive ? activeClassname : inActiveClassname
+              }
             >
               {" "}
               <div className="flex flex-row items-center">
@@ -37,7 +49,9 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/likedvideos"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
+              className={({ isActive }) =>
+                isActive ? activeClassname : inActiveClassname
+              }
             >
               {" "}
               <div className="flex flex-row items-center">
@@ -48,7 +62,9 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/watchlater"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
+              className={({ isActive }) =>
+                isActive ? activeClassname : inActiveClassname
+              }
             >
               <div className="flex flex-row items-center">
                 <FaClock className="mr-2" /> Watch Later
@@ -58,7 +74,9 @@ export const NavBar = () => {
           <li>
             <NavLink
               to="/history"
-              className="px-3 py-2 my-2 text-lg block hover:bg-gray-700 active:bg-gray-900  focus:bg-gray-900 active:text-white focus:text-sky-400 rounded"
+              className={({ isActive }) =>
+                isActive ? activeClassname : inActiveClassname
+              }
             >
               {" "}
               <div className="flex flex-row items-center">

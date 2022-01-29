@@ -11,16 +11,20 @@ export function VideoListing() {
       <ul className="flex flex-row flex-wrap justify-evenly">
         {videosDb.map((item) => (
           <li className="w-64 mx-2 mb-4">
-            <Link to={`/video/${item.videoId}`}>
+            <Link to={`/video/${item.videoLinkId}`}>
               <img
                 className="video-thumbnail"
-                src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
+                src={`https://img.youtube.com/vi/${item.videoLinkId}/maxresdefault.jpg`}
                 alt="video-name"
               />
 
               <div className="flex flex-row mt-2 gap-2">
                 {/* <FaDotCircle className="text-white text-3xl" /> */}
-                <img src={item.channel.logo} alt={item.videoTitle} className="rounded-full h-8"></img>
+                <img
+                  src={item.channel.logo}
+                  alt={item.videoTitle}
+                  className="rounded-full h-8"
+                ></img>
                 <div className="flex flex-col">
                   <p className="text-gray-100 font-medium">{item.videoTitle}</p>
                   <small className="text-gray-400">{item.channel.name}</small>

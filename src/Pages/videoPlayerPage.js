@@ -8,8 +8,8 @@ import { FaClock, FaThumbsUp, FaFolderPlus, FaShareAlt } from "react-icons/fa";
 
 export function VideoPlayerPage() {
   const { videoID } = useParams();
-  const { id, videoId, videoTitle, views, date, channel } = videosDb.find(
-    (item) => item.videoId === videoID
+  const { id, videoLinkId, videoTitle, views, date, channel } = videosDb.find(
+    (item) => item.videoLinkId === videoID
   );
 
   return (
@@ -19,7 +19,7 @@ export function VideoPlayerPage() {
           key={id}
           style={{ height: "29rem" }}
           className=""
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={`https://www.youtube.com/embed/${videoLinkId}`}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -62,10 +62,10 @@ export function VideoPlayerPage() {
         <ul className="flex flex-col flex-wrap justify-evenly flex:none">
           {videosDb.map((item) => (
             <li className="w-64 mx-2 mb-4">
-              <Link to={`/video/${item.videoId}`}>
+              <Link to={`/video/${item.videoLinkId}`}>
                 <img
                   className="video-thumbnail"
-                  src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${item.videoLinkId}/maxresdefault.jpg`}
                   alt="video-name"
                 />
 

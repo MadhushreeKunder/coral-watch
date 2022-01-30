@@ -1,15 +1,22 @@
 // import "../styles.css";
 
 import { videosDb } from "../database";
-import { Link } from "react-router-dom";
-// import { FaDotCircle } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
+import { useUser, useVideo, useAuth} from "../contexts";
+
 
 export function VideoListing() {
+  const {userState, userDispatch} = useUser();
+  const { data, status } = useVideo();
+  const {token} = useAuth();
+  const navigate = useNavigate();
+
+
   return (
     <div className="h-full ml-44 mt-4 py-8">
       <ul className="flex flex-row flex-wrap justify-evenly">
-        {videosDb.map((item) => (
+        {data.map((item) => (
           <li className="w-64 mx-2 mb-4">
             <Link to={`/video/${item.videoLinkId}`}>
               <img

@@ -43,7 +43,7 @@ export function VideoPlayerPage() {
           </div>
           <div className="flex flex-row gap-6 text-2xl text-gray-300 mr-4">
             <button>
-              <FaThumbsUp className="active:text-white hover:text-white focus:text-rose-500" />
+              <FaThumbsUp className="active:text-sky-400 hover:text-white focus:text-rose-500" />
             </button>
             <button>
               <FaClock className="active:text-white hover:text-white focus:text-rose-500" />

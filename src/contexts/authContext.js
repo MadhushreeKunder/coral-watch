@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
   const [token, setToken] = useState(savedToken);
   const [user, setUser] = useState({
-    id: "",
+    _id: "",
     username: "",
     email: "",
     password: "",
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
     setupAuthExceptionHandler(logout, navigate);
   }, []);
 
-  async function loginUserWithCreds(username, password) {
+  const loginUserWithCreds = async (username, password)=> {
     try {
       setStatus({ loading: "Please wait..." });
       const { data } = await axios.post(`${Backend_URL}/auth/login`, {
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  async function signUpUserWithCreds(username, password, email) {
+  const signUpUserWithCreds= async(username, password, email)=> {
     try {
       setStatus({ loading: "Adding user info.." });
       const { data } = await axios.post(`${Backend_URL}/auth/signup`, {
@@ -123,6 +123,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => {
+export function useAuth() {
   return useContext(AuthContext);
 };

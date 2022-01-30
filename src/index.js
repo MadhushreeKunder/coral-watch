@@ -1,13 +1,13 @@
 import React from "react";
 import "./index.css";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
-import { AuthProvider, UserProvider } from "./contexts";
+import { AuthProvider, UserProvider, VideoProvider } from "./contexts";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -15,7 +15,9 @@ ReactDOM.render(
     <Router>
       <AuthProvider>
         <UserProvider>
-          <App />
+          <VideoProvider>
+            <App />
+          </VideoProvider>
         </UserProvider>
       </AuthProvider>
     </Router>

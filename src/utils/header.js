@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -10,7 +10,14 @@ export const Header = () => {
             <h1 className="font-bold text-white">CORAL-watch</h1>
           </div>
         </Link>
+
+        <div className="flex flex-row gap-4">
+        <NavLink to="/login" className="font-bold text-white">Login</NavLink>
+        <NavLink to="/signup" className="font-bold text-white">Signup</NavLink>
         <div className="font-bold text-white">Logout</div>
+        </div>
+
+    
       </header>
     </div>
   );

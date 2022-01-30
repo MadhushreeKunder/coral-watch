@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import React from "react";
 import axios from "axios";
-import { useAuth } from "../auth/authContext";
+import { useAuth } from "./authContext";
 import { userReducer } from "../reducers/userReducer";
 import { Backend_URL } from "../utils/utils";
 
@@ -25,12 +25,14 @@ export function UserProvider({ children }) {
   }, [token]);
 
   const [userState, userDispatch] = useReducer(userReducer, {
-    _id: "1",
+    // _id: "1",
     loading: "",
     liked: [],
     history: [],
     watchLater: [],
-    playlists: [],
+    playlists: [
+      { videos: []}
+    ],
   });
 
   return (

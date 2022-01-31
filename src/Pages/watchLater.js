@@ -2,10 +2,14 @@ import { videosDb } from "../database";
 import { Link } from "react-router-dom";
 import { FaDotCircle } from "react-icons/fa";
 import { viewsFormatter } from "../utils/viewsFormatter";
+import { useAuth, useUser } from "../contexts";
 
 // Add remove from watch later
 
 export function WatchLater() {
+  const { user } = useAuth();
+  const { userState, userDispatch } = useUser();
+
   return (
     <div className="h-full ml-44 mt-4 py-8">
       <h1 className="text-white text-2xl font-semibold ml-5 mb-5">

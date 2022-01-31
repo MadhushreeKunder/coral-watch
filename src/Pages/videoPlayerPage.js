@@ -2,24 +2,34 @@
 import React from "react";
 import { videosDb } from "../database";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import { FaClock, FaThumbsUp, FaFolderPlus, FaShareAlt } from "react-icons/fa";
+import { addToLikedVideos, removeFromLikedVideos } from "../utils/apiSync";
+import { useUser, useAuth, useVideo } from "../contexts";
+import { likeToggle } from "../utils/toggleColor";
 
 export function VideoPlayerPage() {
-  const { videoID } = useParams();
-  const { id, videoLinkId, videoTitle, views, date, channel } = videosDb.find(
-    (item) => item.videoLinkId === videoID
-  );
+  const { videoId } = useParams();
+  // const { id, _id, videoTitle, views, date, channel } = videosDb.find(
+  //   (item) => item._id === videoId
+  // );
+
+  const { data, status } = useVideo();
+  const { userState, userDispatch } = useUser();
+  const { user, token } = useAuth();
+  const navigate = useNavigate();
+
+  const video = data.find((video) => video._id === videoId);
 
   return (
     <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center">
       <div className="flex flex-col w-full mx-8">
         <iframe
-          key={id}
+          key={video._id}
           style={{ height: "29rem" }}
           className=""
-          src={`https://www.youtube.com/embed/${videoLinkId}`}
+          src={`https://www.youtube.com/embed/${video._id}`}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -29,21 +39,47 @@ export function VideoPlayerPage() {
         <div className="flex flex-row mt-6 justify-between items-center gap-4">
           <div className="flex flex-row gap-4">
             <img
-              src={channel.logo}
-              alt={videoTitle}
+              src={video.channel.logo}
+              alt={video.videoTitle}
               className="rounded-full h-12"
             ></img>
             <div className="flex flex-col">
-              <p className="text-2xl font-medium text-white">{videoTitle}</p>
+              <p className="text-2xl font-medium text-white">
+                {video.videoTitle}
+              </p>
               <div className="flex flex-row gap-3 text-gray-400 mt-3">
-                <p>{channel.name}</p> •<p>{viewsFormatter(views)} views</p> •
-                <p>{date}</p>
+                <p>{video.channel.name}</p> •
+                <p>{viewsFormatter(video.views)} views</p> •<p>{video.date}</p>
               </div>
             </div>
           </div>
           <div className="flex flex-row gap-6 text-2xl text-gray-300 mr-4">
-            <button>
-              <FaThumbsUp className="active:text-sky-400 hover:text-white focus:text-rose-500" />
+            <button
+              onClick={
+                token
+                  ? (e) => {
+                      e.preventDefault();
+                      userState.liked.find((videoId) =>
+                        videoId._id === video._id
+                          ? removeFromLikedVideos(user, video, userDispatch)
+                          : addToLikedVideos(user, video, userDispatch)
+                      );
+
+                      // userState.liked.reduce((acc, value) => {
+                      //   return value.videoId._id === video._id
+                      //     ? removeFromLikedVideos(user, video, userDispatch)
+                      //     : acc;
+                      // }, addToLikedVideos(user, video, userDispatch));
+                    }
+                  : () => {
+                      navigate("/login");
+                    }
+              }
+            >
+              <FaThumbsUp
+                className="text-gray-300"
+                // {likeToggle(video, userState, token)}
+              />
             </button>
             <button>
               <FaClock className="active:text-white hover:text-white focus:text-rose-500" />
@@ -62,10 +98,10 @@ export function VideoPlayerPage() {
         <ul className="flex flex-col flex-wrap justify-evenly flex:none">
           {videosDb.map((item) => (
             <li className="w-64 mx-2 mb-4">
-              <Link to={`/video/${item.videoLinkId}`}>
+              <Link to={`/video/${item._id}`}>
                 <img
                   className="video-thumbnail"
-                  src={`https://img.youtube.com/vi/${item.videoLinkId}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
                   alt="video-name"
                 />
 

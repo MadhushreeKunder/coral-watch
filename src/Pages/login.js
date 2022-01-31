@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash, FaEnvelope } from "react-icons/fa";
 
-
 export function Login() {
   const { status, loginUserWithCreds } = useAuth();
   const { state } = useLocation();
@@ -14,7 +13,7 @@ export function Login() {
     username: "",
     password: "",
     message: "",
-    showPassword: "",
+    showPassword: false,
   });
 
   const loginUser = async () => {
@@ -48,79 +47,70 @@ export function Login() {
           onSubmit={(e) => e.preventDefault()}
           className="flex flex-col items-center justify-center align-middle my-4 mx-auto"
         >
-        <div className="flex flex-col w-60 m-4">
-          <label className="mb-2 text-gray-300">
-          <FaUser className="inline" /> Username
-          </label>
-          <input
-            type="text"
-            placeholder="Enter username"
-            className="text-slate-900 font-medium  p-2 "
-            required
-            value={loginCredentials.username}
-            onChange={(e) =>
-              setLoginCredentials(() => ({
-                ...loginCredentials,
-                msg: "",
-                username: e.target.value,
-              }))
-            }
-          />
-        </div>
+          <div className="flex flex-col w-60 m-4">
+            <label className="mb-2 text-gray-300">
+              <FaUser className="inline" /> Username
+            </label>
+            <input
+              type="text"
+              placeholder="Enter username"
+              className="text-slate-900 font-medium  p-2 "
+              required
+              value={loginCredentials.username}
+              onChange={(e) =>
+                setLoginCredentials(() => ({
+                  ...loginCredentials,
+                  msg: "",
+                  username: e.target.value,
+                }))
+              }
+            />
+          </div>
 
-        <div className="flex flex-col w-60 m-4 relative">
-          <label  className="mb-2 text-gray-300">
-          <FaLock className="inline" />  Password
-          </label>
-          <input
-            type={loginCredentials.showPassword ? "text" : "password"}
-            placeholder="Enter password"
-            className="text-slate-900 font-medium  p-2 "
-            required
-            value={loginCredentials.password}
-            onChange={(e) =>
-              setLoginCredentials(() => ({
-                ...loginCredentials,
-                msg: "",
-                password: e.target.value,
-              }))
-            }
-          />
+          <div className="flex flex-col w-60 m-4 relative">
+            <label className="mb-2 text-gray-300">
+              <FaLock className="inline" /> Password
+            </label>
+            <input
+              type={loginCredentials.showPassword ? "text" : "password"}
+              placeholder="Enter password"
+              className="text-slate-900 font-medium  p-2 "
+              required
+              value={loginCredentials.password}
+              onChange={(e) =>
+                setLoginCredentials(() => ({
+                  ...loginCredentials,
+                  msg: "",
+                  password: e.target.value,
+                }))
+              }
+            />
 
-          <button
+            <button
               className="text-slate-900 absolute right-3 top-11"
               onClick={() =>
-              setLoginCredentials(() => ({
-                ...loginCredentials,
-                showPassword: !loginCredentials.showPassword,
-              }))
-            }
-          >
-            {loginCredentials.showPassword ? <FaEye /> : <FaEyeSlash />}
-          </button>
-        </div>
-        {/* <h3>
-          {status.loading && (
-            <img
-              src="../images/loading.svg"
-              alt="loading"
-              className="loading"
-            />
-          )}
-        </h3> */}
-        <p>{loginCredentials.msg}</p>
-        <button
+                setLoginCredentials(() => ({
+                  ...loginCredentials,
+                  showPassword: !loginCredentials.showPassword,
+                }))
+              }
+            >
+              {loginCredentials.showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
+          </div>
+          <p>{loginCredentials.msg}</p>
+          <button
             className="py-2 px-4 m-4 block w-fit rounded-lg bg-cyan-500 shadow-lg shadow-cyan-500/50 active:shadow-gray-900 text-slate-900 font-bold"
             onClick={loginUser}
-        >
-          Login
-        </button>
-        <small className="text-base">
-          Don't have an account?{" "}
-          <Link to="/signup">
-            <span className="text-sky-400 hover:underline"> Sign up!</span>
-          </Link>
-        </small>
+          >
+            Login
+          </button>
+          <small className="text-base">
+            Don't have an account?{" "}
+            <Link to="/signup">
+              <span className="text-sky-400 hover:underline"> Sign up!</span>
+            </Link>
+          </small>
         </form>
       </div>
     </div>

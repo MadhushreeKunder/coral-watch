@@ -13,7 +13,7 @@ export function VideoProvider({ children }) {
           type: "STATUS",
           payload: { loading: "loading data from server.." },
         });
-        const response = await axios.get(`${Backend_URL}/videos`);
+        const response = await axios.get(`${Backend_URL}/video`);
         const data = response.data.videos;
         dispatch({ type: "ADD_DATA", payload: data });
         dispatch({

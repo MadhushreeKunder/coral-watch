@@ -12,6 +12,7 @@ export const userReducer = (state, action) => {
         history: action.payload.history,
         watchlater: action.payload.watchlater,
         playlists: action.payload.playlists,
+        status: {loading: "", success: "", error: ""}
       };
 
     case "STATUS":
@@ -71,6 +72,8 @@ export const userReducer = (state, action) => {
         ...state,
         history: state.history.splice(0, state.history.length),
       };
+
+    
 
     default:
       return state;

@@ -1,7 +1,6 @@
 import axios from "axios";
-import { createContext, useContext, useEffect } from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { Backend_URL } from "../utils/utils";
 import { setupAuthExceptionHandler, setupAuthHeaderForServiceCalls } from "../utils/setupAuth";
 
@@ -58,7 +57,7 @@ export const AuthProvider = ({ children }) => {
           success: `Login successful. Hello, ${data.user.username}!`,
         });
       }
-      return data;
+      return data.success;
     } catch (error) {
       console.error("Error from login!", error);
       setStatus({ error: error.response.data.errorMessage });
@@ -81,7 +80,7 @@ export const AuthProvider = ({ children }) => {
           success: `SignUp successful. Welcome, ${data.user.username}! `,
         });
       }
-      return data;
+      return data.success;
     } catch (error) {
       console.error("Error from signup!", error);
       setStatus({

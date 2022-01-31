@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }) => {
     localStorage?.removeItem("user");
     setStatus({ loading: "", success: "", error: "" });
     setUser({
-      id: "",
+      _id: "",
       username: "",
       email: "",
       password: "",

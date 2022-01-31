@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import { useUser, useVideo, useAuth} from "../contexts";
 import { addToHistory } from "../utils/apiSync";
@@ -6,7 +6,7 @@ import { addToHistory } from "../utils/apiSync";
 
 export function VideoListing() {
   const {userState, userDispatch} = useUser();
-  const { data, status } = useVideo();
+  const { data } = useVideo();
   const {token, user} = useAuth();
 
   return (

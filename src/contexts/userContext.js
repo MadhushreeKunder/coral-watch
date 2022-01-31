@@ -8,7 +8,7 @@ import { Backend_URL } from "../utils/utils";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   useEffect(() => {
     if (token) {
@@ -18,15 +18,16 @@ export function UserProvider({ children }) {
           const data = response.data.user;
           userDispatch({ type: "LOAD_USER_ACTIVITY", payload: data });
         } catch (error) {
+          userDispatch({ type: "STATUS", payload: {error: "Try again!"}})
           console.log("UserContext error:", error.response);
         }
       })();
     }
-  }, [token]);
+  }, [token, user ]);
 
   const [userState, userDispatch] = useReducer(userReducer, {
     // _id: "1",
-    loading: "",
+    status: { loading: "", success: "", error: "" },
     liked: [],
     history: [],
     watchLater: [],

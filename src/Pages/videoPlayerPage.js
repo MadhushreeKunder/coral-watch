@@ -1,6 +1,4 @@
-// import "../styles.css";
 import React from "react";
-import { videosDb } from "../database";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
@@ -58,22 +56,23 @@ export function VideoPlayerPage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row gap-6 text-2xl text-gray-300 mr-4">
+          <div className="flex flex-row gap-6 text-2xl text-gray-400 mr-4">
             <button
               onClick={
                 token
-                  ? (e) => {
-                      e.preventDefault();
-                      userState.liked.find((videoId) =>
-                        videoId._id === video._id
-                          ? removeFromLikedVideos(user, video, userDispatch)
-                          : addToLikedVideos(user, video, userDispatch)
-                      );
-                      // userState.liked.reduce((acc, value) => {
-                      //   return value.videoId._id === video._id
+                  ? () => {
+                      // e.preventDefault();
+
+                      // userState.liked.find((videoId) =>
+                      //   videoId._id === video._id
                       //     ? removeFromLikedVideos(user, video, userDispatch)
-                      //     : acc;
-                      // }, addToLikedVideos(user, video, userDispatch));
+                      //     : addToLikedVideos(user, video, userDispatch)
+                      // );
+                      userState.liked.reduce((acc, value) => {
+                        return value.videoId._id === video._id
+                          ? removeFromLikedVideos(user, video, userDispatch)
+                          : acc;
+                      }, addToLikedVideos(user, video, userDispatch));
                     }
                   : () => {
                       navigate("/login");
@@ -81,33 +80,40 @@ export function VideoPlayerPage() {
               }
             >
               <FaThumbsUp
-                className="text-gray-300"
-                // {likeToggle(video, userState, token)}
+                // className="text-gray-300"
+                className={likeToggle(video, userState, token)}
               />
             </button>
             <button
               onClick={
                 token
-                  ? (e) => {
-                      e.preventDefault();
-                      userState.watchlater.find((videoId) =>
-                        videoId._id === video._id
+                  ? () => {
+                      // e.preventDefault();
+                      userState.watchlater.reduce((acc, value) => {
+                        return value.videoId._id === video._id
                           ? removeFromWatchLater(user, video, userDispatch)
-                          : addToWatchLater(user, video, userDispatch)
-                      );
+                          : acc;
+                      }, addToWatchLater(user, video, userDispatch));
+
+                      // userState.watchlater.find((videoId) =>
+                      //   videoId._id === video._id
+                      //     ? removeFromWatchLater(user, video, userDispatch)
+                      //     : addToWatchLater(user, video, userDispatch)
+                      // );
                     }
                   : () => {
                       navigate("/login");
                     }
               }
             >
-              <FaClock className="active:text-white hover:text-white focus:text-rose-500" />
+              <FaClock className={likeToggle(video, userState, token)} />
+            </button>
+
+            <button>
+              <FaFolderPlus className="active:text-white hover:text-white " />
             </button>
             <button>
-              <FaFolderPlus className="active:text-white hover:text-white focus:text-rose-500" />
-            </button>
-            <button>
-              <FaShareAlt className="active:text-white hover:text-white focus:text-rose-500" />
+              <FaShareAlt className="active:text-white hover:text-white" />
             </button>
           </div>
         </div>

@@ -30,7 +30,39 @@ export const userReducer = (state, action) => {
         return {...state, liked: state.liked.filter((item) => {
           return item.videoId._id !== action.payload._id;
         })}
+
+      case "WATCH_LATER": 
+        return {
+          ...state, watchLater: state.watchLater.concat(action.payload)
+        }
+
+      case "WATCH_LATER_REMOVE":
+        return {
+          ...state, watchLater: state.watchLater.filter((item) => {
+            return item.videoId._id !== action.payload._id
+          })
+        }
+
+      case "ADD_TO_HISTORY":
+        return {
+          ...state, history: state.history.some((element) => element.videoId._id === action.payload._id)
+          ? state.history
+          : state.history.concat(action.payload)
+        }
+
+      case "REMOVE_FROM_HISTORY":
+        return {
+          ...state, history: state.history.filter((item) => {
+            return item.videoId._id !== action.payload._id
+          })
+        }
       
+      case "CLEAR_HISTORY":
+        return {
+          ...state, history: state.history.splice(0, state.history.length)
+        }
+
+
 
 
 

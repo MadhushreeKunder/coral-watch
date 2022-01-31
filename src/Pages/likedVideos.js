@@ -16,7 +16,7 @@ export function LikedVideos() {
       </h1>
       <ul className="flex flex-row flex-wrap justify-evenly">
         {userState.liked.map(({ videoId: video }) => (
-          <li className="w-64 mx-2 mb-4 relative z-0">
+          <li className="w-64 mx-2 mb-4 relative z-0" key={video._id}>
             <button
               className="text-2xl text-white absolute -top-4 -right-4 z-2"
               onClick={() => {

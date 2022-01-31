@@ -1,6 +1,6 @@
-import { videosDb } from "../database";
+// import { videosDb } from "../database";
 import { Link } from "react-router-dom";
-import { FaDotCircle } from "react-icons/fa";
+// import { FaDotCircle } from "react-icons/fa";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import { useAuth, useUser } from "../contexts";
 import { removeFromHistory, clearHistory } from "../utils/apiSync";
@@ -13,7 +13,7 @@ export function History() {
   const { user } = useAuth();
 
   return (
-    <div className="h-screen ml-44 mt-4 py-8">
+    <div className="h-full min-h-screen ml-44 mt-4 py-8">
       <h1 className="text-white text-2xl font-semibold ml-5 ">History</h1>
       <button 
       onClick={()=> clearHistory(user, userDispatch)}

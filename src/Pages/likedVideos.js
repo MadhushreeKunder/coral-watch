@@ -1,4 +1,3 @@
-import { videosDb } from "../database";
 import { Link } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import { removeFromLikedVideos } from "../utils/apiSync";
@@ -10,7 +9,7 @@ export function LikedVideos() {
   const { userState, userDispatch } = useUser();
 
   return (
-    <div className="h-screen ml-44 mt-4 py-8">
+    <div className="h-full min-h-screen ml-44 mt-4 py-8">
       <h1 className="text-white text-2xl font-semibold ml-5 mb-5">
         Liked Videos
       </h1>

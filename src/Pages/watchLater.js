@@ -6,7 +6,6 @@ import { useAuth, useUser } from "../contexts";
 import { removeFromWatchLater } from "../utils/apiSync";
 import { FaTimesCircle } from "react-icons/fa";
 
-
 // Add remove from watch later
 
 export function WatchLater() {
@@ -19,9 +18,9 @@ export function WatchLater() {
         Watch Later
       </h1>
       <ul className="flex flex-row flex-wrap justify-evenly">
-        {userState.watchLater.map(({videoId: video}) => (
+        {userState.watchlater.map(({ videoId: video }) => (
           <li className="w-64 mx-2 mb-4 relative">
-             <button
+            <button
               className="text-2xl text-white absolute -top-4 -right-4 z-2"
               onClick={() => {
                 removeFromWatchLater(user, video, userDispatch);
@@ -38,9 +37,15 @@ export function WatchLater() {
 
               <div className="flex flex-row mt-2 gap-2">
                 {/* <FaDotCircle className="text-white text-3xl" /> */}
-                <img src={video.channel.logo} alt={video.channel.name} className="rounded-md h-8"></img>
+                <img
+                  src={video.channel.logo}
+                  alt={video.channel.name}
+                  className="rounded-md h-8"
+                ></img>
                 <div className="flex flex-col">
-                  <p className="text-gray-100 font-medium">{video.videoTitle}</p>
+                  <p className="text-gray-100 font-medium">
+                    {video.videoTitle}
+                  </p>
                   <small className="text-gray-400">{video.channel.name}</small>
                   <small className="text-gray-400">
                     {viewsFormatter(video.views)} views . {video.date}

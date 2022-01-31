@@ -5,7 +5,12 @@ import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
 import { FaClock, FaThumbsUp, FaFolderPlus, FaShareAlt } from "react-icons/fa";
-import { addToLikedVideos, addToWatchLater, removeFromLikedVideos, removeFromWatchLater } from "../utils/apiSync";
+import {
+  addToLikedVideos,
+  addToWatchLater,
+  removeFromLikedVideos,
+  removeFromWatchLater,
+} from "../utils/apiSync";
 import { useUser, useAuth, useVideo } from "../contexts";
 import { likeToggle } from "../utils/toggleColor";
 
@@ -80,12 +85,12 @@ export function VideoPlayerPage() {
                 // {likeToggle(video, userState, token)}
               />
             </button>
-            <button 
+            <button
               onClick={
                 token
                   ? (e) => {
                       e.preventDefault();
-                      userState.watchLater.find((videoId) =>
+                      userState.watchlater.find((videoId) =>
                         videoId._id === video._id
                           ? removeFromWatchLater(user, video, userDispatch)
                           : addToWatchLater(user, video, userDispatch)
@@ -131,7 +136,9 @@ export function VideoPlayerPage() {
                     <p className="text-gray-100 font-medium">
                       {video.videoTitle}
                     </p>
-                    <small className="text-gray-400">{video.channel.name}</small>
+                    <small className="text-gray-400">
+                      {video.channel.name}
+                    </small>
                     <small className="text-gray-400">
                       {viewsFormatter(video.views)} views • {video.date}
                     </small>

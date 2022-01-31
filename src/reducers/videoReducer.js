@@ -3,6 +3,12 @@ export const videoReducer = (state, action) => {
     case "ADD_DATA":
       return { ...state, data: action.payload };
 
+      case "STATUS":
+        return {
+          ...state,
+          status: action.payload,
+        };
+
     default:
       return state;
   }

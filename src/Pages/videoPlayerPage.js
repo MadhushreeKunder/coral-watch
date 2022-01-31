@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { viewsFormatter } from "../utils/viewsFormatter";
@@ -8,9 +9,11 @@ import {
   addToWatchLater,
   removeFromLikedVideos,
   removeFromWatchLater,
+
 } from "../utils/apiSync";
 import { useUser, useAuth, useVideo } from "../contexts";
 import { likeToggle } from "../utils/toggleColor";
+import { PlaylistModal } from "../utils/playlistModal";
 
 export function VideoPlayerPage() {
   const { videoId } = useParams();
@@ -23,11 +26,19 @@ export function VideoPlayerPage() {
   const { user, token } = useAuth();
   const navigate = useNavigate();
 
+  const [addToPlaylistModal, setAddToPlaylistModal] =useState(false);
+
   const video = data.find((video) => video._id === videoId);
 
   return (
-    <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center">
-      <div className="flex flex-col w-full mx-8">
+    <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center ">
+      <div className="flex flex-col w-full mx-8 relative">
+        {addToPlaylistModal && (
+          <div className="absolute top-48 left-80 bg-white">
+            <PlaylistModal setAddToPlaylistModal={setAddToPlaylistModal}
+            video={video} />
+          </div>
+        )}
         <iframe
           key={video._id}
           style={{ height: "29rem" }}
@@ -109,7 +120,9 @@ export function VideoPlayerPage() {
               <FaClock className={likeToggle(video, userState, token)} />
             </button>
 
-            <button>
+            <button
+            onClick={token ? () => {setAddToPlaylistModal(!addToPlaylistModal)} : () => { navigate("/login")}}
+            >
               <FaFolderPlus className="active:text-white hover:text-white " />
             </button>
             <button>

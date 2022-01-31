@@ -12,7 +12,7 @@ export const userReducer = (state, action) => {
         history: action.payload.history,
         watchlater: action.payload.watchlater,
         playlists: action.payload.playlists,
-        status: {loading: "", success: "", error: ""}
+        status: { loading: "", success: "", error: "" },
       };
 
     case "STATUS":
@@ -73,7 +73,43 @@ export const userReducer = (state, action) => {
         history: state.history.splice(0, state.history.length),
       };
 
-    
+    case "CREATE_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.concat(action.payload),
+      };
+
+    case "DELETE_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.filter((item) => {
+          return item._id !== action.payload._id;
+        }),
+      };
+
+    case "ADD_TO_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.map((item) => {
+          return item._id === action.payload._id ? action.payload : item;
+        }),
+      };
+
+    case "REMOVE_FROM_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.map((item) => {
+          return item.name === action.payload.selectedPlayList
+            ? {
+                ...item,
+                videos: item.videos.filter(
+                  (video) =>
+                    video.videoId._id !== action.payload.selectedVideo._id
+                ),
+              }
+            : item;
+        }),
+      };
 
     default:
       return state;

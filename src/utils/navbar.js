@@ -16,7 +16,7 @@ export const NavBar = () => {
     "px-3 py-2 my-2 text-lg block rounded hover:bg-gray-700 hover:text-white";
 
   return (
-    <aside className="fixed left-0 h-full z-1">
+    <aside className="fixed left-0 h-full z-50">
       <nav className=" flex flex-col items-start pl-3 pr-3 mr-20 h-full bg-gray-800 text-gray-400 ">
         <ul>
           <li>

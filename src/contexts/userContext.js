@@ -15,6 +15,7 @@ export function UserProvider({ children }) {
       (async () => {
         try {
           const response = await axios.get(`${Backend_URL}/user`);
+          console.log("response", {response})
           const data = response.data.user;
           userDispatch({ type: "LOAD_USER_ACTIVITY", payload: data });
         } catch (error) {
@@ -31,8 +32,16 @@ export function UserProvider({ children }) {
     liked: [],
     history: [],
     watchlater: [],
-    playlists: [{ videos: [] }],
+    playlists: [    
+      // {
+      //   _id: 1000,
+      //   name: "Interesting",
+      //   videos: []
+      // }
+    ],
   });
+
+  console.log("userState", userState);
 
   return (
     <UserContext.Provider value={{ userState, userDispatch }}>

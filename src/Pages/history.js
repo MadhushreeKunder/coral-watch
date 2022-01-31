@@ -43,7 +43,7 @@ export function History() {
                   <img
                     alt={video.channel.name}
                     src={video.channel.logo}
-                    className="rounded-md h-8"
+                    className="rounded-full h-8"
                   ></img>
                   <div className="flex flex-col">
                     <p className="text-gray-100 font-medium">

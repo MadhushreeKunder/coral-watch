@@ -10,7 +10,7 @@ export const addToLikedVideos = async (user, video, dispatch) => {
     const response = await axios.post(`${Backend_URL}/user/liked`, {
       videoId: video._id,
     });
-    console.log({response});
+    console.log({ response });
     if (response.status === 201) {
       dispatch({ type: "LIKED", payload: response.data.addedVideo });
     }
@@ -33,8 +33,10 @@ export const removeFromLikedVideos = async (user, video, dispatch) => {
     }
   } catch (error) {
     console.error(error);
-    dispatch({ type: "STATUS", payload: { error: "Removing video from liked, unsuccessful "}})
-
+    dispatch({
+      type: "STATUS",
+      payload: { error: "Removing video from liked, unsuccessful " },
+    });
   }
 };
 
@@ -48,8 +50,10 @@ export const addToHistory = async (user, video, dispatch) => {
     }
   } catch (error) {
     console.error(error);
-    dispatch({ type: "STATUS", payload: { error: "Adding video to history, unsuccessful "}})
-
+    dispatch({
+      type: "STATUS",
+      payload: { error: "Adding video to history, unsuccessful " },
+    });
   }
 };
 
@@ -86,7 +90,7 @@ export const addToWatchLater = async (user, video, dispatch) => {
     const response = await axios.post(`${Backend_URL}/user/watchlater`, {
       videoId: video._id,
     });
-    console.log({response});
+    console.log({ response });
     if (response.status === 201) {
       dispatch({ type: "WATCH_LATER", payload: response.data.addedVideo });
     }
@@ -109,7 +113,76 @@ export const removeFromWatchLater = async (user, video, dispatch) => {
     }
   } catch (error) {
     console.error(error);
-    dispatch({ type: "STATUS", payload: { error: "Removing video from watch later, unsuccessful "}})
+    dispatch({
+      type: "STATUS",
+      payload: { error: "Removing video from watch later, unsuccessful " },
+    });
+  }
+};
 
+export const createPlayListBackend = async (user, playlistTitle, dispatch) => {
+  try {
+    const response = await axios.post(`${Backend_URL}/user/playlists`, {
+      name: playlistTitle,
+    });
+    console.log("response playlist", { response });
+
+    if (response.status === 200) {
+      dispatch({ type: "CREATE_PLAYLIST", payload: response.data.playlist });
+    }
+  } catch (error) {
+    dispatch({
+      type: "STATUS",
+      payload: { error: `playlist ${playlistTitle} create failed` },
+    });
+  }
+};
+
+export const deletePlayListBackend = async (user, playlist, dispatch) => {
+  try {
+    const response = await axios.delete(
+      `${Backend_URL}/user/playlists/${playlist._id}`
+    );
+    if (response.status === 200) {
+      dispatch({ type: "DELETE_PLAYLIST ", payload: response.data.playlist });
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const addVideoToPlaylist = async (user, playlist, dispatch, video) => {
+  console.log(playlist);
+  try {
+    const response = await axios.post(
+      `${Backend_URL}/user/playlists/${playlist._id}`,
+      { videos: [...playlist.videos, { videoId: video._id }] }
+    );
+    if (response.status === 201) {
+      dispatch({ type: "ADD_TO_PLAYLIST", payload: response.data.playlist });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteVideoFromPlaylist = async (
+  user,
+  playlist,
+  video,
+  dispatch
+) => {
+  try {
+    const response = await axios.delete(
+      `${Backend_URL}/user/playlists/${playlist._id}/${video._id}}`
+    );
+    if (response.status === 200) {
+      dispatch({
+        type: "REMOVE_FROM_PLAYLIST",
+        payload: { selectedPlaylist: playlist.name, selectedVideo: video },
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };

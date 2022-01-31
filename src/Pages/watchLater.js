@@ -30,7 +30,6 @@ export function WatchLater() {
             </button>
             <Link to={`/video/${video._id}`}>
               <img
-                className="video-thumbnail"
                 src={`https://img.youtube.com/vi/${video._id}/maxresdefault.jpg`}
                 alt="video-name"
               />
@@ -40,7 +39,7 @@ export function WatchLater() {
                 <img
                   src={video.channel.logo}
                   alt={video.channel.name}
-                  className="rounded-md h-8"
+                  className="h-8 rounded-full"
                 ></img>
                 <div className="flex flex-col">
                   <p className="text-gray-100 font-medium">

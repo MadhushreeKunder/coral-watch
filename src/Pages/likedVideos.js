@@ -16,7 +16,7 @@ export function LikedVideos() {
       </h1>
       <ul className="flex flex-row flex-wrap justify-evenly">
         {userState.liked.map(({ videoId: video }) => (
-          <li className="w-64 mx-2 mb-4 relative z-0" key={video._id}>
+          <li className="w-64 mx-2 mb-4 relative z-0" >
             <button
               className="text-2xl text-white absolute -top-4 -right-4 z-2"
               onClick={() => {
@@ -26,12 +26,12 @@ export function LikedVideos() {
               <FaTimesCircle />
             </button>
             <Link to={`/video/${video._id}`} className="">
-              <div >
+              <div key={video._id} >
                 <img
                   src={`https://img.youtube.com/vi/${video._id}/maxresdefault.jpg`}
                   alt="video-name"
                 />
-              </div>
+              
 
               <div className="flex flex-row mt-2 gap-2">
                 <img
@@ -48,6 +48,7 @@ export function LikedVideos() {
                     {viewsFormatter(video.views)} views . {video.date}
                   </small>
                 </div>
+              </div>
               </div>
             </Link>
           </li>

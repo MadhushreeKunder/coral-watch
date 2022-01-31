@@ -33,6 +33,8 @@ export const removeFromLikedVideos = async (user, video, dispatch) => {
     }
   } catch (error) {
     console.error(error);
+    dispatch({ type: "STATUS", payload: { error: "Removing video from liked, unsuccessful "}})
+
   }
 };
 
@@ -46,6 +48,8 @@ export const addToHistory = async (user, video, dispatch) => {
     }
   } catch (error) {
     console.error(error);
+    dispatch({ type: "STATUS", payload: { error: "Adding video to history, unsuccessful "}})
+
   }
 };
 
@@ -89,8 +93,23 @@ export const addToWatchLater = async (user, video, dispatch) => {
   } catch (error) {
     dispatch({
       type: "STATUS",
-      payload: { error: "Couldn't add video to liked videos.." },
+      payload: { error: "Couldn't add video to watch later videos.." },
     });
     console.error(error);
+  }
+};
+
+export const removeFromWatchLater = async (user, video, dispatch) => {
+  try {
+    const response = await axios.delete(
+      `${Backend_URL}/user/watchlater/${video._id}`
+    );
+    if (response.status === 200) {
+      dispatch({ type: "WATCH_LATER_REMOVE", payload: video });
+    }
+  } catch (error) {
+    console.error(error);
+    dispatch({ type: "STATUS", payload: { error: "Removing video from watch later, unsuccessful "}})
+
   }
 };

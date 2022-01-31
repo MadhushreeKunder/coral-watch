@@ -35,7 +35,7 @@ export const NavBar = () => {
           </li>
           <li className="">
             <NavLink
-              to="/playlists"
+              to="/playlist"
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }
@@ -48,7 +48,7 @@ export const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/likedvideos"
+              to="/liked"
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }

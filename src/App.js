@@ -8,27 +8,35 @@ import {
   VideoPlayerPage,
   SignUp,
   Login,
-  LogoutUser
+  LogoutUser,
+  PrivateRoute,
 } from "./Pages";
 import { Header, NavBar } from "./utils";
 import { Link, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="App bg-gray-900 h-full">
+    <div className="App bg-gray-900 h-full min-h-screen">
       <Header />
       <NavBar />
-      <Routes className="routes">
-        <Route path="/" element={<VideoListing />} />
-        <Route path="/playlists" element={<Playlists />} />
-        <Route path="/video/:videoId" element={<VideoPlayerPage />} />
-        <Route path="/likedvideos" element={<LikedVideos />} />
-        <Route path="/watchlater" element={<WatchLater />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/signup" element={<SignUp/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/logout" element={<LogoutUser/>}></Route>
-      </Routes>
+      <div className="h-full min-h-screen bg-gray-900">
+        <Routes className="routes">
+          <Route path="/" element={<VideoListing />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/video/:videoId" element={<VideoPlayerPage />} />
+
+          <PrivateRoute path="/playlist" element={<Playlists />} />
+
+          <PrivateRoute path="/logout" element={<LogoutUser />} />
+
+          <PrivateRoute path="/liked" element={<LikedVideos />} />
+
+          <PrivateRoute path="/watchlater" element={<WatchLater />} />
+
+          <PrivateRoute path="/history" element={<History />} />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -18,22 +18,20 @@ export function UserProvider({ children }) {
           const data = response.data.user;
           userDispatch({ type: "LOAD_USER_ACTIVITY", payload: data });
         } catch (error) {
-          userDispatch({ type: "STATUS", payload: {error: "Try again!"}})
+          userDispatch({ type: "STATUS", payload: { error: "Try again!" } });
           console.log("UserContext error:", error.response);
         }
       })();
     }
-  }, [token, user ]);
+  }, [token, user]);
 
   const [userState, userDispatch] = useReducer(userReducer, {
     // _id: "1",
     status: { loading: "", success: "", error: "" },
     liked: [],
     history: [],
-    watchLater: [],
-    playlists: [
-      { videos: []}
-    ],
+    watchlater: [],
+    playlists: [{ videos: [] }],
   });
 
   return (

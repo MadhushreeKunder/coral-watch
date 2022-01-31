@@ -14,14 +14,14 @@ export function VideoListing() {
 
 
   return (
-    <div className="h-full ml-44 mt-4 py-8">
+    <div className="h-full ml-44 mt-4 py-8 bg-gray-900">
       <ul className="flex flex-row flex-wrap justify-evenly">
         {data.map((item) => (
-          <li className="w-64 mx-2 mb-4">
-            <Link to={`/video/${item.videoLinkId}`}>
+          <li className="w-64 mx-2 mb-4" >
+            <Link to={`/video/${item._id}`} >
               <img
                 className="video-thumbnail"
-                src={`https://img.youtube.com/vi/${item.videoLinkId}/maxresdefault.jpg`}
+                src={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
                 alt="video-name"
               />
 

@@ -6,12 +6,18 @@ import { addToHistory } from "../utils/apiSync";
 
 export function VideoListing() {
   const {userState, userDispatch} = useUser();
-  const { data } = useVideo();
-  const {token, user} = useAuth();
+  const { data , status} = useVideo();
+  const {token, user, } = useAuth();
 
   return (
-    <div className="h-full ml-44 mt-4 py-8 bg-gray-900">
+    <div className="h-full ml-44 mt-4 py-8 bg-gray-900 relative">
+        <h3 className="fixed flex z-10 align-middle -left-6 h-3/5 w-full justify-center overflow-auto bg-opacity-10">
+          {status?.loading && (
+            <img src="/Images/Loading-blue.svg" alt="loading" />
+          )}
+        </h3>
       <ul className="flex flex-row flex-wrap justify-evenly">
+    
         {data.map((video) => (
           <li className="w-64 mx-2 mb-4" >
             <Link to={`/video/${video._id}`} >

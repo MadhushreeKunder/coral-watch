@@ -14,10 +14,10 @@ export const PlaylistModal = ({ setAddToPlayListModal, video }) => {
   const [checkedPlaylist, setCheckedPlaylist] = useState({});
   const { user } = useAuth();
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     setCheckedPlaylist({
       ...checkedPlaylist,
-      [e.target.value]: e.target.checked,
+      [event.target.value]: event.target.checked,
     });
   };
 
@@ -49,17 +49,19 @@ export const PlaylistModal = ({ setAddToPlayListModal, video }) => {
             <div key={playList._id}>
               <label className="text-gray-900">
                 {playList.name}{" "}
+                <input
+                  type="checkbox"
+                  name={playList.name}
+                  value={playList.name}
+                  checked={
+                    checkedPlaylist[playList.name] ||
+                    playList.videos.some(
+                      (item) => item.videoId._id === video._id
+                    )
+                  }
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="checkbox"
-                name={playList.name}
-                value={playList.name}
-                checked={
-                  checkedPlaylist[playList.name] ||
-                  playList.videos.some((item) => item.videoId._id === video._id)
-                }
-                onChange={handleChange}
-              />
             </div>
           );
         })}

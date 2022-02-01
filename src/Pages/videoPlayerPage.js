@@ -26,16 +26,16 @@ export function VideoPlayerPage() {
   const { user, token } = useAuth();
   const navigate = useNavigate();
 
-  const [addToPlaylistModal, setAddToPlaylistModal] =useState(false);
+  const [addToPlayListModal, setAddToPlayListModal] = useState(false);
 
   const video = data.find((video) => video._id === videoId);
 
   return (
     <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center ">
       <div className="flex flex-col w-full mx-8 relative">
-        {addToPlaylistModal && (
+        {addToPlayListModal && (
           <div className="absolute top-48 left-80 bg-white">
-            <PlaylistModal setAddToPlaylistModal={setAddToPlaylistModal}
+            <PlaylistModal setAddToPlayListModal={setAddToPlayListModal}
             video={video} />
           </div>
         )}
@@ -121,7 +121,7 @@ export function VideoPlayerPage() {
             </button>
 
             <button
-            onClick={token ? () => {setAddToPlaylistModal(!addToPlaylistModal)} : () => { navigate("/login")}}
+            onClick={token ? () => {setAddToPlayListModal(!addToPlayListModal)} : () => { navigate("/login")}}
             >
               <FaFolderPlus className="active:text-white hover:text-white " />
             </button>

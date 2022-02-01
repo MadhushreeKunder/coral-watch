@@ -17,26 +17,32 @@ export function Playlists() {
   return (
     <div className="h-full ml-44 mt-4 py-8">
       <h1 className="text-white text-2xl font-semibold ml-5 mb-5">Playlists</h1>
-      <div className="flex flex-row flex-wrap justify-evenly">
+      <div className="flex flex-col flex-wrap justify-evenly  m-5">
         {userState.playlists.map((playList) => {
           return playList.name !== "" ? (
-            <div key={playList._id} className="text-white ">
-              <div>
-                <h3>Playlistname here{playList.name}</h3>
+            <div
+              key={playList._id}
+              className="text-white border-2 border-solid border-slate-800 rounded-lg p-5 mb-5"
+            >
+              <div className="flex justify-between mb-4">
+                <h3 className="text-xl font-semibold">{playList.name}</h3>
+
                 <button
                   onClick={() => {
                     deletePlayListBackend(user, playList, userDispatch);
                   }}
+                  className="py-2 px-4 m-auto mr-8 mb-6 block justify-end w-fit rounded-lg bg-cyan-500 shadow-lg shadow-cyan-500/50 active:shadow-gray-900 text-slate-900 font-bold"
                 >
-                  <FaTrashAlt />
+                  Delete Playlist
                 </button>
               </div>
 
-              <div>
+              <ul className="flex flex-wrap justify-start gap-4">
                 {playList.videos.map(({ videoId: video }) => {
                   return (
-                    <li className="w-64 mx-2 mb-4">
+                    <li className="w-64 mx-2 mb-4 list-none relative ">
                       <button
+                        className="text-2xl text-white absolute -top-4 -right-4 z-2"
                         onClick={() =>
                           deleteVideoFromPlaylist(
                             user,
@@ -59,7 +65,7 @@ export function Playlists() {
                           <img
                             alt={video.videoTitle}
                             src={video.channel.logo}
-                            className="rounded-md h-8"
+                            className="rounded-full h-8"
                           ></img>
                           <div className="flex flex-col">
                             <p className="text-gray-100 font-medium">
@@ -77,7 +83,7 @@ export function Playlists() {
                     </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           ) : null;
         })}

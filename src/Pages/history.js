@@ -14,13 +14,15 @@ export function History() {
 
   return (
     <div className="h-full min-h-screen ml-44 mt-4 py-8">
+      <div className="flex justify-between mb-4">
       <h1 className="text-white text-2xl font-semibold ml-5 ">History</h1>
       <button 
       onClick={()=> clearHistory(user, userDispatch)}
       className="py-2 px-4 m-auto mr-8 mb-6 block justify-end w-fit rounded-lg bg-cyan-500 shadow-lg shadow-cyan-500/50 active:shadow-gray-900 text-slate-900 font-bold">
         Clear History
       </button>
-      <ul className="flex flex-row flex-wrap justify-evenly">
+      </div>
+      <ul className="flex flex-row flex-wrap justify-start gap-4 m-4">
         {userState.history.map(({ videoId: video }) => (
           <li className="w-64 mx-2 mb-4 relative">
             <button

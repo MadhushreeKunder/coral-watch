@@ -12,7 +12,7 @@ import {
 
 } from "../utils/apiSync";
 import { useUser, useAuth, useVideo } from "../contexts";
-import { likeToggle } from "../utils/toggleColor";
+import { likeToggle, watchlaterToggle } from "../utils/toggleColor";
 import { PlaylistModal } from "../utils/playlistModal";
 
 export function VideoPlayerPage() {
@@ -117,7 +117,7 @@ export function VideoPlayerPage() {
                     }
               }
             >
-              <FaClock className={likeToggle(video, userState, token)} />
+              <FaClock className={watchlaterToggle(video, userState, token)} />
             </button>
 
             <button

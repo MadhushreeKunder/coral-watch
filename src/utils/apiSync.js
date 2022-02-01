@@ -122,6 +122,11 @@ export const removeFromWatchLater = async (user, video, dispatch) => {
 
 export const createPlayListBackend = async (user, playlistTitle, dispatch) => {
   try {
+    dispatch({
+      type: "STATUS",
+      payload: { loading: `Creating ${playlistTitle}` },
+    });
+
     const response = await axios.post(`${Backend_URL}/user/playlists`, {
       name: playlistTitle,
     });
@@ -140,29 +145,49 @@ export const createPlayListBackend = async (user, playlistTitle, dispatch) => {
 
 export const deletePlayListBackend = async (user, playlist, dispatch) => {
   try {
+    dispatch({
+      type: "STATUS",
+      payload: { loading: `Removing ${playlist.name}....` },
+    });
     const response = await axios.delete(
       `${Backend_URL}/user/playlists/${playlist._id}`
     );
+    console.log({ response });
     if (response.status === 200) {
       dispatch({ type: "DELETE_PLAYLIST ", payload: response.data.playlist });
     }
   } catch (error) {
     console.log(error.message);
+    console.log(error);
+    dispatch({
+      type: "STATUS",
+      payload: { error: `Couldn't remove ${playlist.name}` },
+    });
   }
 };
 
-export const addVideoToPlaylist = async (user, playlist, dispatch, video) => {
-  console.log(playlist);
+export const addVideoToPlaylist = async (user, playlist, video, dispatch) => {
+  console.log("this is playlist", playlist);
   try {
+    dispatch({
+      type: "STATUS",
+      payload: { loading: `Adding video to ${playlist.name}` },
+    });
     const response = await axios.post(
       `${Backend_URL}/user/playlists/${playlist._id}`,
       { videos: [...playlist.videos, { videoId: video._id }] }
     );
+    console.log({ response });
     if (response.status === 201) {
       dispatch({ type: "ADD_TO_PLAYLIST", payload: response.data.playlist });
     }
+
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: "STATUS",
+      payload: { error: `Couldn't add video to ${playlist.name}..` },
+    });
   }
 };
 
@@ -173,16 +198,25 @@ export const deleteVideoFromPlaylist = async (
   dispatch
 ) => {
   try {
+    console.log("play", { playlist });
+    dispatch({
+      type: "STATUS", 
+      payload: { loading: `Removing video from ${playlist.name}` },
+    });
     const response = await axios.delete(
       `${Backend_URL}/user/playlists/${playlist._id}/${video._id}}`
     );
     if (response.status === 200) {
       dispatch({
         type: "REMOVE_FROM_PLAYLIST",
-        payload: { selectedPlaylist: playlist.name, selectedVideo: video },
+        payload: {  Playlist: playlist.name, selectedVideo: video },
       });
     }
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: "STATUS",
+      payload: { error: `Couldn't add video to ${playlist.name}` },
+    });
   }
 };

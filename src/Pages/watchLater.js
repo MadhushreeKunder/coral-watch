@@ -17,7 +17,7 @@ export function WatchLater() {
       <h1 className="text-white text-2xl font-semibold ml-5 mb-5">
         Watch Later
       </h1>
-      <ul className="flex flex-row flex-wrap justify-evenly">
+      <ul className="flex flex-row flex-wrap justify-start gap-4 m-4">
         {userState.watchlater.map(({ videoId: video }) => (
           <li className="w-64 mx-2 mb-4 relative">
             <button

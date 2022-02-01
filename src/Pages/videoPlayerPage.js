@@ -15,6 +15,9 @@ import { useUser, useAuth, useVideo } from "../contexts";
 import { likeToggle, watchlaterToggle } from "../utils/toggleColor";
 import { PlaylistModal } from "../utils/playlistModal";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export function VideoPlayerPage() {
   const { videoId } = useParams();
   // const { id, _id, videoTitle, views, date, channel } = videosDb.find(
@@ -29,6 +32,21 @@ export function VideoPlayerPage() {
   const [addToPlayListModal, setAddToPlayListModal] = useState(false);
 
   const video = data.find((video) => video._id === videoId);
+
+  const [copied, setCopied] = useState(false);
+
+  function copy() {
+    const el = document.createElement('input');
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    setCopied(true);
+    toast("Copied!")
+  }
+
+
 
   return (
     <div className="h-full ml-44 mt-4 py-8 pr-6 flex flex-row justify-center ">
@@ -125,8 +143,8 @@ export function VideoPlayerPage() {
             >
               <FaFolderPlus className="active:text-white hover:text-white " />
             </button>
-            <button>
-              <FaShareAlt className="active:text-white hover:text-white" />
+            <button onClick={copy}>
+              <FaShareAlt className="active:text-white hover:text-white"/>
             </button>
           </div>
         </div>
@@ -168,6 +186,17 @@ export function VideoPlayerPage() {
           ))}
         </ul>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

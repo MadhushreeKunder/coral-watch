@@ -206,10 +206,11 @@ export const deleteVideoFromPlaylist = async (
     const response = await axios.delete(
       `${Backend_URL}/user/playlists/${playlist._id}/${video._id}}`
     );
+    console.log("del vid:", {response});
     if (response.status === 200) {
       dispatch({
         type: "REMOVE_FROM_PLAYLIST",
-        payload: {  Playlist: playlist.name, selectedVideo: video },
+        payload: {  selectedPlayList: playlist.name, selectedVideo: video },
       });
     }
   } catch (error) {

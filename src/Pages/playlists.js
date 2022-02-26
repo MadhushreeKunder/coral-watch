@@ -43,14 +43,15 @@ export function Playlists() {
                     <li className="w-64 mx-2 mb-4 list-none relative ">
                       <button
                         className="text-2xl text-white absolute -top-4 -right-4 z-2"
-                        onClick={() =>
+                        onClick={(e) => {
+                          e.preventDefault();
                           deleteVideoFromPlaylist(
                             user,
                             playList,
                             video,
                             userDispatch
-                          )
-                        }
+                          );
+                        }}
                       >
                         <FaTrashAlt />
                       </button>

@@ -8,7 +8,6 @@ import {
 } from "react-icons/fa";
 
 export const NavBar = () => {
-  
   let activeClassname =
     "px-3 py-2 my-2 text-lg block rounded active:bg-gray-900 active:text-sky-400 focus:bg-gray-900 focus:text-sky-400";
 
@@ -17,7 +16,7 @@ export const NavBar = () => {
 
   return (
     <aside className="fixed left-0 h-full z-50">
-      <nav className=" flex flex-col items-start pl-3 pr-3 mr-20 h-full bg-gray-800 text-gray-400 ">
+      <nav className=" flex flex-col items-start pl-3 pr-3 h-full bg-gray-800 text-gray-400 ">
         <ul>
           <li>
             <NavLink

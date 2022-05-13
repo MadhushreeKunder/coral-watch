@@ -22,8 +22,8 @@ export function Login() {
         loginCredentials.username,
         loginCredentials.password
       );
-
-      if (result.success) {
+      if (result) {
+        console.log("home");
         navigate(state?.from ? state.from : "/");
       }
     } else {
@@ -99,6 +99,21 @@ export function Login() {
             </button>
           </div>
           <p>{loginCredentials.msg}</p>
+
+          <button
+            className="py-2 px-4 m-4 block w-fit rounded-lg border-2 border-cyan-500 text-cyan-500 shadow-lg shadow-cyan-500/50 active:shadow-gray-900 font-bold"
+            onClick={() => {
+              loginUser();
+              setLoginCredentials(() => ({
+                ...loginCredentials,
+                username: "admin",
+                password: "admin",
+              }));
+            }}
+          >
+            Login with test credentials
+          </button>
+
           <button
             className="py-2 px-4 m-4 block w-fit rounded-lg bg-cyan-500 shadow-lg shadow-cyan-500/50 active:shadow-gray-900 text-slate-900 font-bold"
             onClick={loginUser}

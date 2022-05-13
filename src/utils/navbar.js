@@ -6,8 +6,10 @@ import {
   FaClock,
   FaHistory,
 } from "react-icons/fa";
+import { useAuth } from "../contexts/authContext";
 
 export const NavBar = () => {
+  const { token } = useAuth();
   let activeClassname =
     "px-3 py-2 my-2 text-lg block rounded active:bg-gray-900 active:text-sky-400 focus:bg-gray-900 focus:text-sky-400";
 
@@ -34,7 +36,7 @@ export const NavBar = () => {
           </li>
           <li className="">
             <NavLink
-              to="/playlist"
+              to={token ? "/playlist" : "/login"}
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }
@@ -47,7 +49,7 @@ export const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/liked"
+              to={token ? "/liked" : "/login"}
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }
@@ -60,7 +62,7 @@ export const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/watchlater"
+              to={token ? "/watchlater" : "/login"}
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }
@@ -72,7 +74,7 @@ export const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/history"
+              to={token ? "/history" : "/login"}
               className={({ isActive }) =>
                 isActive ? activeClassname : inActiveClassname
               }

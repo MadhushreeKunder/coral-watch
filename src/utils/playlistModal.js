@@ -32,58 +32,65 @@ export const PlaylistModal = ({ setAddToPlayListModal, video }) => {
   }, [checkedPlaylist]);
 
   return (
-    <div className="p-4">
-      <div className="relative pb-2">
-        <h4>Add to Playlist</h4>
-        <button
-          className="absolute top-0 right-0"
-          onClick={() => setAddToPlayListModal(false)}
-        >
-          <FaTimesCircle />
-        </button>
-      </div>
+    <>
+      <div
+        className="fixed top-0 left-0 bottom-0 right-0"
+        onClick={() => setAddToPlayListModal(false)}
+      ></div>
 
-      <div className="text-gray-900">
-        {userState.playlists.map((playList) => {
-          return (
-            <div key={playList._id}>
-              <label className="text-gray-900">
-                {playList.name}{" "}
-                <input
-                  type="checkbox"
-                  name={playList.name}
-                  value={playList.name}
-                  checked={
-                    checkedPlaylist[playList.name] ||
-                    playList.videos.some(
-                      (item) => item.videoId._id === video._id
-                    )
-                  }
-                  onChange={handleChange}
-                />
-              </label>
-            </div>
-          );
-        })}
+      <div className="p-4">
+        <div className="relative pb-2">
+          <h4>Add to Playlist</h4>
+          <button
+            className="absolute top-0 right-0"
+            onClick={() => setAddToPlayListModal(false)}
+          >
+            <FaTimesCircle />
+          </button>
+        </div>
+
+        <div className="text-gray-900">
+          {userState.playlists.map((playList) => {
+            return (
+              <div key={playList._id}>
+                <label className="text-gray-900">
+                  {playList.name}{" "}
+                  <input
+                    type="checkbox"
+                    name={playList.name}
+                    value={playList.name}
+                    checked={
+                      checkedPlaylist[playList.name] ||
+                      playList.videos.some(
+                        (item) => item.videoId._id === video._id
+                      )
+                    }
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+            );
+          })}
+        </div>
+        <hr />
+        <div className="pt-2">
+          <input
+            type="text"
+            value={addNewPlayList}
+            placeholder="Add Playlist"
+            onChange={(e) => setAddNewPlayList(e.target.value)}
+          ></input>
+          <button
+            className="bg-cyan-500 font-medium py-1 px-2 rounded"
+            onClick={(e) => {
+              createPlayListBackend(user, addNewPlayList, userDispatch);
+              setAddNewPlayList("");
+            }}
+          >
+            Add
+          </button>
+        </div>
       </div>
-      <hr />
-      <div className="pt-2">
-        <input
-          type="text"
-          value={addNewPlayList}
-          placeholder="Add Playlist"
-          onChange={(e) => setAddNewPlayList(e.target.value)}
-        ></input>
-        <button
-          className="bg-cyan-500 font-medium py-1 px-2 rounded"
-          onClick={(e) => {
-            createPlayListBackend(user, addNewPlayList, userDispatch);
-            setAddNewPlayList("");
-          }}
-        >
-          Add
-        </button>
-      </div>
-    </div>
+    </>
   );
 };

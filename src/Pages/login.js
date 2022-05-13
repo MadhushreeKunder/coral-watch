@@ -12,7 +12,7 @@ export function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
     username: "",
     password: "",
-    message: "",
+    msg: "",
     showPassword: false,
   });
 
@@ -29,7 +29,7 @@ export function Login() {
     } else {
       setLoginCredentials({
         ...loginCredentials,
-        message: "Username & Password required",
+        msg: "Username & Password required",
       });
     }
   };
